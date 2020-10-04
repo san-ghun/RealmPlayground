@@ -26,25 +26,26 @@ PlaygroundPage.current.liveView = MyViewController()
 
 import RealmSwift
 
+class Charact: Object {
+    @objc dynamic var character: String = ""
+}
+
+class Tag: Object {
+    @objc dynamic var tag: String = ""
+    @objc dynamic var character: Charact?
+}
+
 class Bookmark: Object{
     @objc dynamic var url: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var desc: String = ""
     @objc dynamic var createDate: Date = Date.init()
     @objc dynamic var image: Data = Data()
-    @objc dynamic var character: Character?
+    @objc dynamic var character: Charact?
     @objc dynamic var isTemp: Bool = true
     
     let tags: List<Tag> = List<Tag>()
 }
 
-class Character: Object {
-    @objc dynamic var character: String = ""
-}
-
-class Tag: Object {
-    @objc dynamic var tag: String = ""
-    @objc dynamic var character: Character?
-}
 
 
